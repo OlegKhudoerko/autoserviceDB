@@ -5,6 +5,7 @@ import shutil
 # encoding='utf-8-sig'
 # если задать my_encoding='utf-8' то в каждой считанной строке появляется '\ufeff'
 
+
 def read_csv_file(f_name, my_encoding='utf-8-sig'):
     # функция читает csv-файл (по сути таблицу БД).
     # Первая строка в csv-файле должна быть заголовком - это ключи словаря
@@ -44,13 +45,14 @@ def write_csv_file(f_name, dat, fldnames: list, my_encoding='utf-8-sig'):
     # либо True  и ''
     # либо False и сообщение об ошибке
     try:
-        shutil.copy(f_name, f_name.replace('.csv','.bak'))
+        shutil.copy(f_name, f_name.replace('.csv', '.bak'))
     except Exception as e:
         return False, f'Ошибка создания резервной копии файла {f_name}. {e}'
 
     try:
         with open(f_name, 'w', encoding=my_encoding, newline='') as file:
-            dict_writer = csv.DictWriter(file, delimiter=';', fieldnames=fldnames)
+            dict_writer = csv.DictWriter(
+                file, delimiter=';', fieldnames=fldnames)
             dict_writer.writeheader()
             dict_writer.writerows(dat)
     except Exception as e:
@@ -69,7 +71,8 @@ def append_to_csv_file(f_name, dat, fldnames: list, my_encoding='utf-8-sig'):
     # либо False и сообщение об ошибке
     try:
         with open(f_name, 'a', encoding=my_encoding, newline='') as file:
-            dict_writer = csv.DictWriter(file, delimiter=';', fieldnames=fldnames)
+            dict_writer = csv.DictWriter(
+                file, delimiter=';', fieldnames=fldnames)
             dict_writer.writerow(dat)
     except Exception as e:
         return False, f'Ошибка записи в файл {f_name}. {e}'

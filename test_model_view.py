@@ -41,12 +41,13 @@ def view_all(f_name, show_field_names: list = [], divider: str = ' '):
 # view_all(mod_c.personal_fname, divider='  ')
 
 
-
-#Добавление записи. В словаре новой записи не обязательно все поля должны быть заполнены
+# Добавление записи. В словаре новой записи не обязательно все поля должны быть заполнены
 new_rec_dat = {'ModelMark': 'Porsche Cayenne', 'Reg_num': 'В345ТЕ99'}
-#список всех полей таблицы
-field_names = ['id_vehicle', 'ModelMark', 'Manufact_date', 'Reg_num', 'id_client']
+# список всех полей таблицы
+field_names = ['id_vehicle', 'ModelMark',
+               'Manufact_date', 'Reg_num', 'id_client']
 id_name = 'id_vehicle'
 
-status, rec_id = mod_c.create_rec_table(mod_c.vehicles_fname, new_rec_dat, field_names, id_name)
+status, rec_id = mod_c.create_rec_table(
+    mod_c.vehicles_fname, new_rec_dat, field_names, id_name)
 print(status, rec_id)

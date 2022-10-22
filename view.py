@@ -1,5 +1,5 @@
 def show_greetings():
-    print("Добро пожаловать в autoserviceDB!")
+    print("Добро пожаловать в меню услуги autoserviceDB!")
 
 
 def input_client_fio():
@@ -28,7 +28,7 @@ def input_repairs_end():
 
 def show_srvice_menu():
     return input(
-        "1 - Показать информацию об услуге\n2 - Добавить информацию об услуге\n3 - Удалить информацию об услуге\n4 - Выход\n")
+        "0 - Выход\n1 - Показать информацию\n2 - Добавить информацию\n3 - Удалить информацию\n")
 
 
 def show_success():

@@ -43,13 +43,15 @@ def create_rec_table(f_name: str, new_rec_dat: dict, tbl_field_names: list, id_n
     new_rec[id_name] = new_id
 
     # добавляем запись в таблицу БД
-    bool_status, message_status = append_to_csv_file(f_name, new_rec, tbl_field_names)
+    bool_status, message_status = append_to_csv_file(
+        f_name, new_rec, tbl_field_names)
     # если была ошибка прекращаем выполнение функции
     if bool_status == False:
         return False, message_status
 
     # в таблице counters увеличиваем значение счетчика на 1
-    bool_status, message_status = write_csv_file(counters_fname, cnt_reader, cnt_field_names)
+    bool_status, message_status = write_csv_file(
+        counters_fname, cnt_reader, cnt_field_names)
     if bool_status == False:
         return False, message_status
     # иначе все операции должны успешно выполниться,
