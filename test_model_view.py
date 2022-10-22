@@ -51,4 +51,5 @@ id_name = 'id_vehicle'
 status, rec_id = mod_c.create_rec_table(
     mod_c.vehicles_fname, new_rec_dat, field_names, id_name)
 
+
 #print(status, rec_id)
